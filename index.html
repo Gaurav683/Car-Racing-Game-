@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#111a17" />
+    <title>Last Drop — Battle Royale</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="hud">
+        <div class="stat-box health-stat">
+          <span>Health</span>
+          <strong id="health">100</strong>
+          <div class="meter"><i id="healthBar"></i></div>
+        </div>
+        <div class="stat-box">
+          <span>Weapon · Ammo</span>
+          <strong id="ammo">RIFLE 30/30</strong>
+        </div>
+        <div class="stat-box">
+          <span>Eliminations</span>
+          <strong id="kills">0 / 12</strong>
+        </div>
+        <div class="stat-box">
+          <span>Safe zone</span>
+          <strong id="zone">01:00</strong>
+        </div>
+      </header>
+
+      <div class="canvas-wrap">
+        <canvas id="gameCanvas" width="960" height="600" aria-label="Last Drop battle royale game"></canvas>
+        <canvas id="minimap" width="160" height="160" aria-label="Map"></canvas>
+        <div id="toast" class="toast" aria-live="polite"></div>
+        <div class="controls-hint">WASD move · Mouse aim/fire · 1/2 weapon · R reload · F heal · E vehicle</div>
+      </div>
+
+      <div class="bottom-bar">
+        <div class="loadout">
+          <button id="rifleBtn" class="weapon-button active" type="button">1 · RIFLE <small>Balanced</small></button>
+          <button id="shotgunBtn" class="weapon-button" type="button">2 · SHOTGUN <small>Close range</small></button>
+          <span id="medkits">MEDKITS 2</span>
+        </div>
+        <div class="mobile-controls" aria-label="Touch controls">
+          <div class="dpad">
+            <button type="button" data-key="KeyW" aria-label="Move up">▲</button>
+            <div><button type="button" data-key="KeyA" aria-label="Move left">◀</button><button type="button" data-key="KeyS" aria-label="Move down">▼</button><button type="button" data-key="KeyD" aria-label="Move right">▶</button></div>
+          </div>
+          <div class="touch-actions">
+            <button id="healBtn" type="button">HEAL</button>
+            <button id="reloadBtn" type="button">RELOAD</button>
+            <button id="fireBtn" type="button">FIRE</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="overlay" class="overlay visible">
+        <section class="panel">
+          <p class="eyebrow">LAST DROP · SOLO ARENA</p>
+          <h1>Be the last<br />one standing.</h1>
+          <p>Loot weapons and supplies, beat 12 rival bots, and stay inside the shrinking safe zone.</p>
+          <ul>
+            <li><b>WASD</b> move · <b>Mouse</b> aim and fire</li>
+            <li><b>1 / 2</b> weapons · <b>R</b> reload · <b>F</b> use medkit</li>
+            <li><b>E</b> enter or exit the buggy · Collect glowing loot</li>
+          </ul>
+          <button id="startBtn" type="button">DROP INTO MATCH</button>
+        </section>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
